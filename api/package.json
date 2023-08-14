@@ -1,12 +1,13 @@
 {
-  "name": "dfxtrabackend",
+  "name": "chitterApi",
   "version": "1.0.0",
   "description": "This will be an node express mongo backend",
-  "main": "app.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "test": "c8 mocha --timeout 10000 --exit",
-    "dev": "nodemon app",
-    "start": "node app"
+    "test": "NODE_ENV=test c8 mocha --timeout 10000 --exit",
+    "build": "nodemon server.js",
+    "start": "NODE_ENV=dev nodemon server.js"
   },
   "author": "Group1",
   "license": "ISC",
