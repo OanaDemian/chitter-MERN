@@ -1,16 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Feed } from './components/feed/Feed.jsx';
+import { peeps } from '../src/assets/samplePeeps.js'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <h1>It works and you found me!</h1>
-    </div>
-  )
+    <Feed peeps={peeps} />
+  );
 }
 
-export default App
+export default App;
