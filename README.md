@@ -65,3 +65,15 @@ As a trainee
 In order to start a conversation as a DFA trainee Software Engineer
 I want to reply to a peep from another trainee.
 ```
+
+## Data models
+
+user: name, email, password, username
+peeps: name, username?
+
+
+### Quickstart
+
+1. Start MongoDB
+   ```
+   brew services start mongodb-community@6.0

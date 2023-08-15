@@ -7,6 +7,7 @@ const peepSchema = new Schema({
     peepId: { type: ObjectId, required: true },
     user: { type: String, required: true },
     username: { type: String, required: true },
+    content: {type: String, required: true },
     date: {type: Date, required: true}
 });
 

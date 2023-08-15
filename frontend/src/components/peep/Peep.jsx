@@ -6,13 +6,9 @@ export const Peep = ({ username, content, dateCreated }) => {
   return (
     <>
       <h5>{username}</h5>
-      <div className="card-body">
-          {content}
-          <p>
-            - {username}
-        </p>
-        </div>
-      </>
+      <h6>{content}</h6>
+      <p> - {dateCreated}</p>
+    </>
   );
 };
 
