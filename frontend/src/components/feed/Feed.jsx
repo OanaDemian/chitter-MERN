@@ -1,22 +1,34 @@
-import PropTypes from 'prop-types';
-import { Peep } from '../peep/Peep';
-export const Feed = props => {
+import PropTypes from "prop-types";
+import { Peep } from "../peep/Peep";
+export const Feed = (props) => {
   const { peeps } = props;
-  let peepsArray = []
+  let peepsArray = [];
 
-  peeps.forEach(peep => {
-    peepsArray.push(< Peep user={peep.user} username={peep.username} content={peep.content} dateCreated={peep.dateCreated} key={peep._id} />)
+  peeps.forEach((peep) => {
+    peepsArray.push(
+      <Peep
+        user={peep.user}
+        username={peep.username}
+        content={peep.content}
+        dateCreated={peep.dateCreated}
+        key={peep._id}
+      />,
+    );
   });
 
-return (
-  <section>
-    
-          {peeps.map(peep =>
-            <Peep user={peep.user} username={peep.username} content={peep.content} dateCreated={peep.dateCreated} key={peep._id} />
-          )}
-
-      </section>
-    );
+  return (
+    <section>
+      {peeps.map((peep) => (
+        <Peep
+          user={peep.user}
+          username={peep.username}
+          content={peep.content}
+          dateCreated={peep.dateCreated}
+          key={peep._id}
+        />
+      ))}
+    </section>
+  );
 };
 Feed.propTypes = {
   peep: PropTypes.shape({
@@ -24,6 +36,6 @@ Feed.propTypes = {
     user: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    dateCreated: PropTypes.instanceOf(Date).isRequired
-  })
-}
+    dateCreated: PropTypes.instanceOf(Date).isRequired,
+  }),
+};
