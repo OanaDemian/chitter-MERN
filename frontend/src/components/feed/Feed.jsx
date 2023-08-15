@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Peep } from '../peep/peep';
+import { Peep } from '../peep/Peep';
 export const Feed = props => {
   const { peeps } = props;
   let peepsArray = []

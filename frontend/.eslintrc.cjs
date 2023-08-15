@@ -16,6 +16,11 @@ module.exports = {
       },
     },
   ],
+   ecmaFeatures: {
+      blockBindings: true,
+      jsx: true,
+  },
+  parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
