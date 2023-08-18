@@ -1,41 +1,15 @@
-import PropTypes from "prop-types";
 import { Peep } from "../peep/Peep";
-export const Feed = (props) => {
-  const { peeps } = props;
-  let peepsArray = [];
+import { peeps } from "../../assets/samplePeeps.js";
 
-  peeps.forEach((peep) => {
-    peepsArray.push(
-      <Peep
-        user={peep.user}
-        username={peep.username}
-        content={peep.content}
-        dateCreated={peep.dateCreated}
-        key={peep._id}
-      />,
-    );
-  });
-
+export const Feed = () => {
   return (
     <section>
       {peeps.map((peep) => (
         <Peep
-          user={peep.user}
-          username={peep.username}
-          content={peep.content}
-          dateCreated={peep.dateCreated}
           key={peep._id}
+          peep={peep}
         />
       ))}
     </section>
   );
-};
-Feed.propTypes = {
-  peep: PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-    dateCreated: PropTypes.instanceOf(Date).isRequired,
-  }),
 };

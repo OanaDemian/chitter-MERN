@@ -5,7 +5,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test c8 mocha --timeout 10000 --exit",
+    "test": "NODE_ENV=test c8 mocha './tests/**/*.test.js' --timeout 10000 --exit",
     "build": "nodemon server.js",
     "start": "NODE_ENV=dev nodemon server.js"
   },
@@ -23,6 +23,7 @@
     "chai": "^4.3.7",
     "chai-http": "^4.4.0",
     "mocha": "^10.2.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "sinon": "^15.2.0"
   }
 }
