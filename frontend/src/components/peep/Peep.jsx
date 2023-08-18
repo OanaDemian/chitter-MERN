@@ -3,7 +3,7 @@ import { formatDate } from '../../utils/date'
 import "./peep.css";
 
 export const Peep = ({ peep }) => {
-  const date = new Date(peep.dateCreated);
+  const date = new Date(peep.date);
   const prettyDate = formatDate(date)
   
   return (
@@ -29,6 +29,7 @@ Peep.propTypes = {
     firstName: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    dateCreated: PropTypes.instanceOf(Date).isRequired,
+    date: PropTypes.instanceOf(Date).isRequired,
+    id: PropTypes.string
   }),
 };

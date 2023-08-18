@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
+.env
+
 src/assets/playground-1.mongodb.js
 src/assets/playground-2.mongodb.js
