@@ -65,7 +65,7 @@ const signin = async (req, res) => {
                 message: "Invalid username/password combination"
             });
         }
-        const token = jwt.sign({ id: user.id }, process.env.SECRET, { expiresIn: 86400 });
+        const token = jwt.sign({ id: user.id, username: user.username }, process.env.SECRET, { expiresIn: 86400 });
 
         res.status(200).send({
             id: user._id,

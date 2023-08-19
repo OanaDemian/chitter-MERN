@@ -1,5 +1,5 @@
 import { Peep } from "../peep/Peep";
-import { getPeeps } from '../../services/getPeeps.js';
+import { getPeeps } from '../../services/peeps.service.js';
 import { useEffect, useState } from "react";
 export const Feed = () => {
   const [peeps, setPeeps] = useState([]);

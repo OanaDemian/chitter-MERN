@@ -1,5 +1,5 @@
 import express from "express";
-import { allPeeps } from "../controllers/allPeeps.controller.js";
+import { allPeeps } from "../controllers/peep.controller.js";
 
 const peepsRouter = express.Router();
 

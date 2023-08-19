@@ -2,10 +2,9 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import authService from "./services/auth.service"
 import { Routes, Route } from 'react-router-dom'; 
-import { Feed } from "./components/feed/Feed.jsx";
+import { Home } from "./components/home/Home.jsx";
 import {Header} from "./components/header/Header.jsx"
 import { Login } from "./components/auth/Login"
-import { peeps } from "../src/assets/samplePeeps.js";
 import { Register } from "./components/auth/Register";
 
 function App() {
@@ -32,7 +31,7 @@ function App() {
     <div>
       <Header currentUser={currentUser} logOut={logOut} />
       <Routes>
-        <Route index element={ <Feed peeps={peeps} />} />
+        <Route index element={<Home currentUser={currentUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login updateUserState={updateUserState} />} />
       </Routes>
