@@ -1,5 +1,5 @@
 import { Peep } from "../peep/Peep";
-import { getPeeps } from '../../api/getPeeps.js';
+import { getPeeps } from '../../services/getPeeps.js';
 import { useEffect, useState } from "react";
 export const Feed = () => {
   const [peeps, setPeeps] = useState([]);
@@ -10,7 +10,6 @@ export const Feed = () => {
 
   const getPeepsData = () => {
     getPeeps().then(response => {
-      console.log(response)
       if (response.error === undefined) {
         setPeeps(response.peepData)
       } else {

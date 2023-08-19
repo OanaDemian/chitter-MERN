@@ -3,7 +3,7 @@ import chaiHttp from "chai-http";
 import server from "../../server.js";
 import sinon from "sinon";
 import Peep from "../../models/peep.model.js";
-import { testDataArray } from '../samplePeeps.js';
+import { testDataArray } from '../testData/samplePeeps.js'
 
 chai.use(chaiHttp);
 

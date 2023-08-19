@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 
-const Schema = mongoose.Schema;
-
-const peepSchema = new Schema({
+const peepSchema = new mongoose.Schema({
   username: { type: String, required: true },
   content: { type: String, required: true },
   date: { type: Date, default: Date.now, required: true },

@@ -29,7 +29,8 @@ Peep.propTypes = {
     firstName: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
-    date: PropTypes.instanceOf(Date).isRequired,
-    id: PropTypes.string
+    date: PropTypes.string.isRequired,
+    _id: PropTypes.string,
+    __v: PropTypes.number
   }),
 };

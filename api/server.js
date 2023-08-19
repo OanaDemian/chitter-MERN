@@ -4,7 +4,7 @@ import cors from "cors";
 import { config } from "dotenv";
 import { main } from "./db/main.js";
 import { peepsRouter } from "./routers/peepsRouter.js";
-
+import authRouter from "./routers/authRouter.js";
 config({ path: `.env.${process.env.NODE_ENV}` });
 
 const port = process.env.PORT;
@@ -16,6 +16,7 @@ main();
 app.use(express.json());
 app.use(cors());
 app.use(`/`, peepsRouter);
+app.use(`/auth`, authRouter);
 
 const server = app.listen(port, host, () => {
   const SERVERHOST = server.address().address;
