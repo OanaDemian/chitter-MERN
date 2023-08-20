@@ -11,9 +11,9 @@ export const getPeeps = async () => {
   }
 }
 
-export const newPeep = async (peep, token) => {
+export const newPeep = async (content, token) => {
   try {
-    await axios.post(`${apiURL}/newPeep`, { peep }, {
+    await axios.post(`${apiURL}/newPeep`, { content }, {
       headers:
       {
         "x-access-token": token
