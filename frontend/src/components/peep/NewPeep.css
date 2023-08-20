@@ -1,0 +1,21 @@
+.btn-create {
+  margin: 10px 0px; 
+}
+
+.new-peep-form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-peep-button {
+  max-width: 200px;
+  margin-left: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+.new-peep-text {
+  background-color: rgb(83, 100, 113);
+  font-size: 16px;
+}

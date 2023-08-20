@@ -55,77 +55,75 @@ export const Register = () => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
-        <form onSubmit={handleRegister}>
-          {!successful && (
-            <div>
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="name"
-                  value={name}
-                  onChange={onChangeName}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <input
-                  className="form-control"
-                  type="text"
-                  name="username"
-                  value={username}
-                  onChange={onChangeUsername}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <input
-                  className="form-control"
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={onChangeEmail}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  className="form-control"
-                  type="password"
-                  name="password"
-                  value={password}
-                  onChange={onChangePassword}
-                />
-              </div>
-              <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
-              </div>
-            </div>
-          )}
-          {message && (
+    <div className="auth-container">
+      <img
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        alt="profile-img"
+        className="profile-img-card"
+      />
+      <form onSubmit={handleRegister}>
+        {!successful && (
+          <div>
             <div className="form-group">
-              <div
-                className={
-                  successful ? `alert alert-success` : `alert alert-danger`
-                }
-                role="alert"
-              >
-                {message}
-              </div>
+              <label htmlFor="name">Name</label>
+              <input
+                className="form-control"
+                type="text"
+                name="name"
+                value={name}
+                onChange={onChangeName}
+              />
             </div>
-          )}
-          <button style={{ display: "none" }} />
-        </form>
-      </div>
+
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <input
+                className="form-control"
+                type="text"
+                name="username"
+                value={username}
+                onChange={onChangeUsername}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                className="form-control"
+                type="email"
+                name="email"
+                value={email}
+                onChange={onChangeEmail}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                className="form-control"
+                type="password"
+                name="password"
+                value={password}
+                onChange={onChangePassword}
+              />
+            </div>
+            <div className="form-group">
+              <button className="auth-button">Sign Up</button>
+            </div>
+          </div>
+        )}
+        {message && (
+          <div className="form-group">
+            <div
+              className={
+                successful ? `alert alert-success` : `alert alert-danger`
+              }
+              role="alert"
+            >
+              {message}
+            </div>
+          </div>
+        )}
+        <button style={{ display: "none" }} />
+      </form>
     </div>
   );
 };

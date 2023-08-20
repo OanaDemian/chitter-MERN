@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="container">
       <Header currentUser={currentUser} logOut={logOut} />
       <Routes>
         <Route index element={<Home currentUser={currentUser} />} />

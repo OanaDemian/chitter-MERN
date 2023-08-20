@@ -1,3 +1,4 @@
+import "./Auth.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -39,8 +40,7 @@ export const Login = (props) => {
   };
 
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
+    <div className="auth-container">
         <img
           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
           alt="profile-img"
@@ -52,7 +52,6 @@ export const Login = (props) => {
             <label htmlFor="username">Username</label>
             <input
               type="text"
-              className="form-control"
               name="username"
               value={username}
               onChange={onChangeUsername}
@@ -62,7 +61,6 @@ export const Login = (props) => {
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              className="form-control"
               name="password"
               value={password}
               onChange={onChangePassword}
@@ -70,9 +68,9 @@ export const Login = (props) => {
           </div>
           <div className="form-group">
             <button
-              className="btn btn-primary btn-block"
               disabled={loading}
-              type="submit"
+            type="submit"
+            className="auth-button"
             >
               {loading && (
                 <span className="spinner-border spinner-border-sm"></span>
@@ -90,7 +88,6 @@ export const Login = (props) => {
           )}
           <button style={{ display: "none" }} />
         </form>
-      </div>
     </div>
   );
 };

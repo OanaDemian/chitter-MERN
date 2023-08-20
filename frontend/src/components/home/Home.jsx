@@ -3,10 +3,10 @@ import { Feed } from "../feed/Feed";
 import { NewPeep } from "../peep/NewPeep";
 export const Home = (props) => {
   return (
-    <div>
+    <main>
       {props.currentUser && <NewPeep currentUser={props.currentUser} />}
       <Feed />
-    </div>
+    </main>
   );
 };
 

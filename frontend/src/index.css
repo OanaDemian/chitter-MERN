@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #fafafa;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,19 +14,24 @@
   -webkit-text-size-adjust: 100%;
 }
 
+#root {
+  display: flex;
+  width: 100%;
+}
+
 a {
-  font-weight: 500;
-  color: #646cff;
+  font-weight: 800;
+  background-color: rgb(29, 161, 242);
+  color: white;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #fafafa;
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -43,16 +48,30 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgb(29, 161, 242);
+  color: white;
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  background-color: rgb(83, 100, 113);
+  font-size: 32px;
+}
+
+main {
+      display: flex;
+    flex-direction: column;
+    /* min-width: 1000px; */
 }
 
 @media (prefers-color-scheme: light) {
