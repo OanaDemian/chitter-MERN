@@ -1,5 +1,5 @@
 import { Peep } from "../peep/Peep";
-import { getPeeps } from '../../services/peeps.service.js';
+import { getPeeps } from "../../services/peeps.service.js";
 import { useEffect, useState } from "react";
 export const Feed = () => {
   const [peeps, setPeeps] = useState([]);
@@ -9,22 +9,19 @@ export const Feed = () => {
   }, []);
 
   const getPeepsData = () => {
-    getPeeps().then(response => {
+    getPeeps().then((response) => {
       if (response.error === undefined) {
-        setPeeps(response.peepData)
+        setPeeps(response.peepData);
       } else {
-        setPeeps([])
+        setPeeps([]);
       }
-    })
-  }
-  
+    });
+  };
+
   return (
     <section>
       {peeps.map((peep) => (
-        <Peep
-          key={peep._id}
-          peep={peep}
-        />
+        <Peep key={peep._id} peep={peep} />
       ))}
     </section>
   );

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { formatDate } from '../../utils/date'
+import { formatDate } from "../../utils/date";
 import "./peep.css";
 
 export const Peep = ({ peep }) => {
@@ -13,9 +13,7 @@ export const Peep = ({ peep }) => {
           <p id="peep-username">@{peep.username}</p>
         </div>
         <div className="peep-timestamp">
-          <p id="peep-timestamp">
-            {prettyDate}
-          </p>
+          <p id="peep-timestamp">{prettyDate}</p>
         </div>
       </div>
       <p id="peep-content">{peep.content}</p>
@@ -31,6 +29,6 @@ Peep.propTypes = {
     content: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     _id: PropTypes.string,
-    __v: PropTypes.number
-  })
+    __v: PropTypes.number,
+  }),
 };

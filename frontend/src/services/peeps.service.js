@@ -1,25 +1,31 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiURL = import.meta.env.VITE_APP_API_URL;
 
 export const getPeeps = async () => {
   try {
     const response = await axios.get(`${apiURL}/peep`);
-    return { peepData: response.data }
+    return { peepData: response.data };
   } catch (error) {
     return { peepData: [], error: error.message };
   }
-}
+};
 
 export const newPeep = async (content, token) => {
   try {
-    await axios.post(`${apiURL}/newPeep`, { content }, {
-      headers:
+    await axios.post(
+      `${apiURL}/newPeep`,
+      { content },
       {
-        "x-access-token": token
-      }
-    });
+        headers: {
+          "x-access-token": token,
+        },
+      },
+    );
   } catch (error) {
-    return { status: error.response?.status, error: { type: "post", message: error.response?.message } };
+    return {
+      status: error.response?.status,
+      error: { type: "post", message: error.response?.message },
+    };
   }
-}
+};
