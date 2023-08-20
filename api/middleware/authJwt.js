@@ -1,7 +1,4 @@
 import jwt from 'jsonwebtoken';
-// import User from '../models/user.model';
-
-
 const verifyToken = (req, res, next) => {
     let token = req.headers["x-access-token"];
 
@@ -10,6 +7,7 @@ const verifyToken = (req, res, next) => {
     }
 
     jwt.verify(token, process.env.SECRET, (err, decoded) => {
+        console.log(err)
         if (err) {
             return res.status(401).send({ message: `Unauthorised` });
         }
