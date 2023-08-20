@@ -17,7 +17,7 @@ export const newPeep = async (req, res) => {
         userId: req.userId,
         name: req.name,
         username: req.username,
-        content: req.body.peep,
+        content: req.body.content,
         date: new Date()
       });
       await peep.save();

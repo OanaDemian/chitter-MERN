@@ -11,4 +11,13 @@ describe("connecting to the database test", () => {
     mongoose.connect.restore();
     done();
   });
+
+  it("should call mongoose.connect", (done) => {
+    const spy = sinon.stub(mongoose, "connect").returns(console.error());
+    main();
+    sinon.assert.calledOnce(spy);
+    sinon.assert.calledWith(spy, process.env.DBURI);
+    mongoose.connect.restore();
+    done();
+  });
 });

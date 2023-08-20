@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import chai, { expect } from "chai";
 import chaiHttp from "chai-http";
 import server from "../../server.js";
@@ -12,8 +13,10 @@ chai.use(chaiHttp);
 const secret = process.env.SECRET;
 
 describe("Testing requests on the database", () => {
-  let token;
-  beforeEach(async () => {
+   
+  describe("GET / peeps", () => {
+
+      beforeEach(async () => {
       try {
         await Peep.deleteMany();
         console.log(`Database cleared`);
@@ -29,8 +32,6 @@ describe("Testing requests on the database", () => {
         throw error;
       };
    })
-  
-  describe("GET / peeps", () => {
 
     it("should return all of the peeps as an array", async () => {
       const testServer = chai.request(server);
@@ -39,6 +40,7 @@ describe("Testing requests on the database", () => {
         .send();
       expect(res).to.have.status(200);
       expect(res.body).to.be.an("array");
+      expect(res.body.length).to.equal(3);
       expect(res.body[0].username).to.exist;
     });
 
@@ -50,12 +52,14 @@ describe("Testing requests on the database", () => {
         .send();
       sinon.assert.calledOnce(spy);
       expect(res).to.have.status(400);
+      Peep.find.restore()
     });
   });
 
-  describe("POST / create a peep", () => {
-    it("should create a peep that is properly formed", async () => {
-      const user = new User({email: "test@test.com", password: "12345678", name: "testName", username: "testUsername" });
+  describe("POST / when token is present", () => {
+   let token;
+    beforeEach(async () => {
+      const user = new User({email: "test@test.com", password: bcrypt.hashSync("12345678", 8), name: "testName", username: "testUsername" });
       await user.save();
       token = jwt.sign({
           id: user._id.toString(),
@@ -66,11 +70,16 @@ describe("Testing requests on the database", () => {
           // Set the JWT token to expire in 10 minutes
           exp: Math.floor(Date.now() / 1000) + (10 * 60)
       }, secret);
+    })
 
+    afterEach(async () => {
+      await User.deleteMany({});
+      await Peep.deleteMany({})
+    })
+    it("responds with 201", async () => {
       const peep = {
-        peep: "Peep peep from Ken",
+        content : "Peep peep from Ken",
       }
-
       const testServer = chai.request(server);
       const res = await testServer
         .post(`/newPeep`)
@@ -78,6 +87,61 @@ describe("Testing requests on the database", () => {
         .send(peep);
       expect(res).to.have.status(201);
     });
+
+    it("creates a new peep", async () => {
+      const peep = {
+        content : "Peep peep from Ken",
+      }
+      const testServer = chai.request(server);
+      const res = await testServer
+        .post("/newPeep")
+        .set("x-access-token", token)
+        .send(peep);
+      const peeps = await Peep.find();
+      expect(peeps.length).to.equal(1);
+      expect(peeps[0].content).to.equal("Peep peep from Ken");
+    });
+  });
+
+  describe("POST, when token is missing", () => {
+    it("responds with a 403 when token is absent", async () => {
+      const peep = {
+        content : "Peep peep from Ken",
+      }
+      const testServer = chai.request(server);
+      const res = await testServer
+        .post(`/newPeep`)
+        .send(peep);
+      expect(res).to.have.status(403);
+       expect(res.body.message).to.equal("No token provided");
+    });
+
+    it("responds with a 401 when the token is present but invalid", async () => {
+      const token = "token";
+      const peep = {
+        content: "Peep peep from Ken",
+        
+      }
+      const testServer = chai.request(server);
+      const res = await testServer
+        .post(`/newPeep`)
+        .set("x-access-token", token)
+        .send(peep);
+      expect(res).to.have.status(401);
+      expect(res.body.message).to.equal("Unauthorised");
+    });
+  
+    it("does not create a new peep", async () => {
+      const peep = {
+        content : "Peep peep from Ken",
+      }
+      const testServer = chai.request(server);
+      const res = await testServer
+        .post(`/newPeep`)
+        .send(peep);
+      const peeps = await Peep.find(peep);
+      expect(peeps.length).to.equal(0);
+    });
+
   });
 });
-  
