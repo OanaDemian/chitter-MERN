@@ -12,12 +12,10 @@ export const allPeeps = async (req, res) => {
 
 
 export const newPeep = async (req, res) => {
-  console.log(req.userId)
-  console.log(req.username)
-
     try {
       const peep = new Peep({
         userId: req.userId,
+        name: req.name,
         username: req.username,
         content: req.body.peep,
         date: new Date()

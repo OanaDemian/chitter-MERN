@@ -4,13 +4,12 @@ import "./peep.css";
 
 export const Peep = ({ peep }) => {
   const date = new Date(peep.date);
-  const prettyDate = formatDate(date)
-  
+  const prettyDate = formatDate(date);
   return (
     <div className="peep-container">
       <div className="peep-details">
         <div className="peep-user-name">
-          <p id="peep-name">{peep.firstName}</p>
+          <p id="peep-name">{peep.name}</p>
           <p id="peep-username">@{peep.username}</p>
         </div>
         <div className="peep-timestamp">
@@ -26,11 +25,12 @@ export const Peep = ({ peep }) => {
 
 Peep.propTypes = {
   peep: PropTypes.exact({
-    firstName: PropTypes.string.isRequired,
+    userId: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     _id: PropTypes.string,
     __v: PropTypes.number
-  }),
+  })
 };

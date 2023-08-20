@@ -12,7 +12,6 @@ export const getPeeps = async () => {
 }
 
 export const newPeep = async (peep, token) => {
-  console.log("token", token)
   try {
     await axios.post(`${apiURL}/newPeep`, { peep }, {
       headers:

@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { validationResult } from "express-validator";
-import { User } from "../models/userModel.js";
+import { User } from "../models/user.model.js"
 
 const signup = async (req, res) => {
     try {
@@ -20,8 +20,7 @@ const signup = async (req, res) => {
     }
 
     const user = new User({
-        firstName: req.body.username,
-        surname: req.body.username,
+        name: req.body.name,
         username: req.body.username,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 8)
@@ -57,7 +56,6 @@ const signin = async (req, res) => {
         if (!user) {
             return res.status(404).send({ message: `User not found` });
         }
-        console.log("user", user)
         const passwordIsInvalid = bcrypt.compareSync(req.body.password, user.password);
         if (!passwordIsInvalid) {
             return res.status(401).send({
@@ -65,12 +63,11 @@ const signin = async (req, res) => {
                 message: "Invalid username/password combination"
             });
         }
-        const token = jwt.sign({ id: user.id, username: user.username }, process.env.SECRET, { expiresIn: 86400 });
+        const token = jwt.sign({ id: user.id, name: user.name, username: user.username }, process.env.SECRET, { expiresIn: 86400 });
 
         res.status(200).send({
             id: user._id,
-            firstName: user.firstName,
-            surname: user.surname,
+            name: user.name,
             username: user.username,
             email: user.email,
             accessToken: token

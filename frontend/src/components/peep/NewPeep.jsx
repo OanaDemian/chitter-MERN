@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { newPeep } from '../../services/peeps.service';
+import PropTypes from "prop-types";
 
-export const NewPeep = () => {
+export const NewPeep = (props) => {
     const [content, setContent] = useState(``);
     const onChangeContent = e => {
         const newContent = e.target.value;
@@ -11,8 +12,7 @@ export const NewPeep = () => {
    const handleSubmit = async e => {
       e.preventDefault();
      setContent(``);
-     const userInfo = JSON.parse(localStorage.getItem('user'));
-     await newPeep(content, userInfo.accessToken);
+     await newPeep(content, props.currentUser.accessToken);
      window.location.reload(false);
     }
 
@@ -38,4 +38,8 @@ export const NewPeep = () => {
             </form>
           </div>
     );
+};
+
+NewPeep.propTypes = {
+  currentUser: PropTypes.object.isRequired
 };

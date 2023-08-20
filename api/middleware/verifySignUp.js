@@ -1,4 +1,4 @@
-import { User } from '../models/userModel.js'
+import { User } from '../models/user.model.js'
 
 const verifySignUp = async (req, res, next) => {
 
@@ -6,7 +6,6 @@ const verifySignUp = async (req, res, next) => {
         const user = await User.findOne({
             username: req.body.username
         })
-            console.log(user)
         if (user) {
             res.status(400).send({ message: `Failed! Username is already in use!` });
             return;

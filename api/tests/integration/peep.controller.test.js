@@ -29,7 +29,7 @@ describe("Testing requests on the database", () => {
     it("should return all of the peeps as an array", async () => {
       const testServer = chai.request(server);
       const res = await testServer
-        .get(`/`)
+        .get(`/peep`)
         .send();
       expect(res).to.have.status(200);
       expect(res.body).to.be.an("array");
@@ -37,10 +37,10 @@ describe("Testing requests on the database", () => {
     });
 
     it("should return a 400 if it cant access the db", async () => {
-      const spy = sinon.stub(Peep, "find").throws(new Error("Fiddle sticks"));
+      const spy = sinon.stub(Peep, "find").throws(new Error("Db could not be accessed"));
       const testServer = chai.request(server);
       const res = await testServer
-        .get(`/`)
+        .get(`/peep`)
         .send();
       
             sinon.assert.calledOnce(spy);

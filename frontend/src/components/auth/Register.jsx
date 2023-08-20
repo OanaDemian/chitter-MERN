@@ -5,23 +5,18 @@ import AuthService from '../../services/auth.service';
 
 export const Register = () => {
     const navigate = useNavigate();
-    const [firstName, setFirstName] = useState(``);
-    const [surname, setSurname] = useState(``);
+    const [name, setName] = useState(``);
     const [username, setUsername] = useState(``);
     const [email, setEmail] = useState(``);
     const [password, setPassword] = useState(``);
     const [successful, setSuccessful] = useState(false);
     const [message, setMessage] = useState(``);
 
-    const onChangeFirstName = e => {
-        const firstName = e.target.value;
-        setFirstName(firstName);
+    const onChangeName = e => {
+        const name = e.target.value;
+        setName(name);
         };
     
-    const onChangeSurname = e => {
-        const surname = e.target.value;
-        setSurname(surname);
-    };
     const onChangeUsername = e => {
         const username = e.target.value;
         setUsername(username);
@@ -43,7 +38,7 @@ export const Register = () => {
         setMessage(``);
         setSuccessful(false);
 
-        const register = await AuthService.register(firstName, surname, username, email, password);
+        const register = await AuthService.register(name, username, email, password);
         if (register.message) {
             setMessage(register.message);
             setSuccessful(true);
@@ -67,25 +62,16 @@ export const Register = () => {
                     {!successful && (
                         <div>
                             <div className="form-group">
-                                <label htmlFor="firstName">First Name</label>
+                                <label htmlFor="name">Name</label>
                                 <input
                                     className="form-control"
                                     type="text"
-                                    name="firstName"
-                                    value={firstName}
-                                    onChange={onChangeFirstName}
+                                    name="name"
+                                    value={name}
+                                    onChange={onChangeName}
                                 />
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="surname">Surname</label>
-                                <input
-                                    className="form-control"
-                                    type="text"
-                                    name="surname"
-                                    value={surname}
-                                    onChange={onChangeSurname}
-                                />
-                            </div>
+
                             <div className="form-group">
                                 <label htmlFor="username">Username</label>
                                 <input

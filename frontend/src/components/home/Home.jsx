@@ -4,13 +4,13 @@ import { NewPeep } from '../peep/NewPeep';
 export const Home = (props) => {
     return (
       <div>
-        {props.currentUser && <NewPeep />}
+        {props.currentUser && <NewPeep currentUser={props.currentUser} />}
         <Feed />
         </div>
     );
 };
 
 Home.propTypes = {
-  currentUser: PropTypes.elementType.isRequired
+  currentUser: PropTypes.object
 };
 
