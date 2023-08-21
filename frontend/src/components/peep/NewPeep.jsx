@@ -22,7 +22,7 @@ export const NewPeep = (props) => {
       <label className="form-label" htmlFor="content"></label>
       <textarea
         className="new-peep-text"
-        placeholder="Content"
+        placeholder="What is happening?!"
         id="content"
         name="content"
         type="text"
