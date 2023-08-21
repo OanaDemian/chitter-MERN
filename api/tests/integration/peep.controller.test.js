@@ -23,7 +23,7 @@ describe("Testing requests on the database", () => {
         throw error;
       }
       try {
-        await Peep.insertMany(testDataArray);
+        await Peep.insertMany(testDataArray, {ordered : true });
         console.log(`Database populated with test Peeps`);
       } catch (error) {
         console.log(`Error inserting`);
@@ -38,6 +38,18 @@ describe("Testing requests on the database", () => {
       expect(res.body).to.be.an("array");
       expect(res.body.length).to.equal(3);
       expect(res.body[0].username).to.exist;
+    });
+
+
+    it("should return all of the peeps in reverse chronological order", async () => {
+      const testServer = chai.request(server);
+      const res = await testServer.get(`/peep`).send();
+      const firstPeepDate = new Date(res.body[2].date);
+      const laterPeepDate = new Date(res.body[1].date);
+      const latestPeepDate = new Date(res.body[0].date);
+      expect(firstPeepDate < laterPeepDate).to.equal(true);
+      expect(laterPeepDate < latestPeepDate).to.equal(true);
+      expect(firstPeepDate < latestPeepDate).to.equal(true);
     });
 
     it("should return a 400 if it cant access the db", async () => {
