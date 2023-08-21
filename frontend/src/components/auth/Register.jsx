@@ -70,6 +70,7 @@ export const Register = () => {
                 className="form-control"
                 type="text"
                 name="name"
+                placeholder="name"
                 value={name}
                 onChange={onChangeName}
               />
@@ -81,6 +82,7 @@ export const Register = () => {
                 className="form-control"
                 type="text"
                 name="username"
+                placeholder="username"
                 value={username}
                 onChange={onChangeUsername}
               />
@@ -90,6 +92,7 @@ export const Register = () => {
               <input
                 className="form-control"
                 type="email"
+                placeholder="email address"
                 name="email"
                 value={email}
                 onChange={onChangeEmail}
@@ -101,6 +104,7 @@ export const Register = () => {
                 className="form-control"
                 type="password"
                 name="password"
+                placeholder="password"
                 value={password}
                 onChange={onChangePassword}
               />

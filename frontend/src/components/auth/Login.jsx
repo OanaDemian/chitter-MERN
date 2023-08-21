@@ -53,6 +53,7 @@ export const Login = (props) => {
           <input
             type="text"
             name="username"
+            placeholder="username"
             value={username}
             onChange={onChangeUsername}
           />
@@ -62,6 +63,7 @@ export const Login = (props) => {
           <input
             type="password"
             name="password"
+            placeholder="password"
             value={password}
             onChange={onChangePassword}
           />
