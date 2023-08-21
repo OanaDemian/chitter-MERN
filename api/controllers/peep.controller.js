@@ -1,5 +1,4 @@
 import Peep from "../models/peep.model.js";
-import { validationResult } from "express-validator";
 
 export const allPeeps = async (req, res) => {
   try {
