@@ -2,7 +2,7 @@ import Peep from "../models/peep.model.js";
 
 export const allPeeps = async (req, res) => {
   try {
-    const peeps = await Peep.find({}).sort({date:-1});
+    const peeps = await Peep.find({}).sort({ date: -1 });
     res.json(peeps);
   } catch (e) {
     res.status(400).send("Couldn't connect to db.");

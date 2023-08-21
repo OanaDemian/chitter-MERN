@@ -1,4 +1,4 @@
-import "./Auth.css"
+import "./Auth.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -41,53 +41,49 @@ export const Login = (props) => {
 
   return (
     <div className="auth-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
+      <img
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        alt="profile-img"
+        className="profile-img-card"
+      />
 
-        <form onSubmit={handleLogin}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={onChangeUsername}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={onChangePassword}
-            />
-          </div>
-          <div className="form-group">
-            <button
-              disabled={loading}
-            type="submit"
-            className="auth-button"
-            >
-              {loading && (
-                <span className="spinner-border spinner-border-sm"></span>
-              )}
-              <span>Login</span>
-            </button>
-          </div>
+      <form onSubmit={handleLogin}>
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={onChangeUsername}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={onChangePassword}
+          />
+        </div>
+        <div className="form-group">
+          <button disabled={loading} type="submit" className="auth-button">
+            {loading && (
+              <span className="spinner-border spinner-border-sm"></span>
+            )}
+            <span>Login</span>
+          </button>
+        </div>
 
-          {message && (
-            <div className="form-group">
-              <div className="alert alert-danger" role="alert">
-                {message}
-              </div>
+        {message && (
+          <div className="form-group">
+            <div className="alert alert-danger" role="alert">
+              {message}
             </div>
-          )}
-          <button style={{ display: "none" }} />
-        </form>
+          </div>
+        )}
+        <button style={{ display: "none" }} />
+      </form>
     </div>
   );
 };

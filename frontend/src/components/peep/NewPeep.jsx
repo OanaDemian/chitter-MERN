@@ -1,4 +1,4 @@
-import "./NewPeep.css"
+import "./NewPeep.css";
 import { useState } from "react";
 import { newPeep } from "../../services/peeps.service";
 import PropTypes from "prop-types";

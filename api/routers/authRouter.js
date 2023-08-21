@@ -4,8 +4,6 @@ import { body } from "express-validator";
 import middlewareConfig from "../middleware/index.js";
 import signingFunctions from "../controllers/auth.controller.js";
 
-// import User from '../models/user.model.js';
-
 const authRouter = express.Router();
 
 const { signin, signup } = signingFunctions;
