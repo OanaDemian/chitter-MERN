@@ -1,0 +1,85 @@
+.peep-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(225, 232, 237);
+  padding: 0px;
+  border-top: solid rgb(29, 161, 242) 1px;
+  margin-bottom: 5px;
+}
+
+.peep-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px;
+}
+.peep-user-name {
+  display: flex;
+  align-items: center;
+}
+
+.peep-timestamp {
+  display: flex;
+}
+
+#peep-name {
+  color: rgb(15, 20, 25);
+  font-family:
+    TwitterChirp,
+    -apple-system,
+    "system-ui",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 20px;
+  --source-text-decoration-thickness: 3px;
+}
+
+#peep-username {
+  color: rgb(83, 100, 113);
+  font-family:
+    TwitterChirp,
+    -apple-system,
+    "system-ui",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+#peep-content {
+  color: rgb(15, 20, 25);
+  font-weight: 400;
+  display: inline;
+  line-height: 20px;
+  font-family:
+    TwitterChirp,
+    -apple-system,
+    "system-ui",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-style: normal;
+  text-align: left;
+  margin: 10px 10px;
+}
+
+#peep-timestamp {
+  color: rgb(83, 100, 113);
+  font-family:
+    TwitterChirp,
+    -apple-system,
+    "system-ui",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
