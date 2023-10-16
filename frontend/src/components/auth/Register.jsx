@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import AuthService from "../../services/auth.service";
 
+import imgBird from "../../assets/bird.png";
+ 
 export const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState(``);
@@ -57,7 +59,8 @@ export const Register = () => {
   return (
     <div className="auth-container">
       <img
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        // src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        src={imgBird}
         alt="profile-img"
         className="profile-img-card"
       />

@@ -1,8 +1,8 @@
 import "./Auth.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import AuthService from "../../services/auth.service";
+import imgBird from "../../assets/bird.png";
 import PropTypes from "prop-types";
 
 export const Login = (props) => {
@@ -42,7 +42,8 @@ export const Login = (props) => {
   return (
     <div className="auth-container">
       <img
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        // src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        src={imgBird}
         alt="profile-img"
         className="profile-img-card"
       />
