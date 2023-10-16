@@ -1,19 +1,10 @@
 # Chitter Challenge
 
-- Feel free to use Google, your notes, books, etc. but work on your own
-- If you refer to the solution of another coach or trainee, please put a link to that in your README
-- If you have a partial solution, **still check in a partial solution**
-- You must submit your work by 9:30am Monday morning
+## Task:
 
-## Challenge:
+Write a small twitter clone that will allow users to post messages to a public wall.
 
-As usual please start by forking this repo.
-
-We are going to write a small twitter clone that will allow users to post messages to a public wall.
-
-Good luck and let the chitter begin!
-
-## Features:
+## User Stories
 
 ### Standard Acceptance Criteria
 
@@ -176,11 +167,15 @@ $ npx prettier --write .
 A user can:
 
 - Sign up
+![A new user can sign up to Chitter:](./frontend/src/assets/chitter-signup.png)
 - Sign in
+![An existing user can login to Chitter:](./frontend/src/assets/chitter-login.png)
+- Create a new peep
+![An existing user can create a new Peep:](./frontend/src/assets/chitter-new-peep.png)
 - Sign out
 - View a list of peeps
-- Create a new peep
--
+![An existing user can create a new Peep:](./frontend/src/assets/chitter-all-peeps.png)
+
 - ## Technologies
 
 Here's an overview of the technologies used to build this template application.
@@ -211,7 +206,7 @@ Other technologies used...
 - [Prettier](https://prettier.io/) for formatting the code.
 - [Express-Validator](https://express-validator.github.io/docs/) a set of express.js middlewares that wraps the extensive collection of validators and sanitizers offered by validator.js.
 - [Nodemon](https://nodemon.io/) to reload the server automatically.
--
+  
 - ## Architecture
 
 This application is comprised of two distinct pieces.
@@ -219,11 +214,11 @@ This application is comprised of two distinct pieces.
 - A backend API built with Express
 - A front end built with React
 
-The React front end sends HTTP requests to the backend API and receives JSON in response body, rather than a whole page of HTML.
+The React front end sends HTTP requests to the backend API and receives JSON in the response body, rather than a whole page of HTML.
 
 ## Authentication
 
-Here's the authentication flow for this application
+Here's the authentication flow for this application:
 
 1. A registered user submits their email address and username via the React front end.
 2. The Express backend receives the data and tries to find a user in the DB with the same email address and username.
