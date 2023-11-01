@@ -42,7 +42,6 @@ export const Login = (props) => {
   return (
     <div className="auth-container">
       <img
-        // src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
         src={imgBird}
         alt="profile-img"
         className="profile-img-card"
