@@ -7,7 +7,8 @@
   "scripts": {
     "test": "NODE_ENV=test c8 mocha './tests/**/*.test.js' --timeout 10000 --exit",
     "build": "nodemon server.js",
-    "start": "NODE_ENV=dev nodemon server.js"
+    "dev": "NODE_ENV=dev nodemon server.js",
+    "start": "NODE_ENV=production node server.js"
   },
   "author": "Group1",
   "license": "ISC",
